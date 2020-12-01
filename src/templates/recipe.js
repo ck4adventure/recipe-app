@@ -1,22 +1,32 @@
 import React from "react"
 import { graphql } from "gatsby"
+import { Link } from "gatsby"
 
 import Layout from "../components/layout"
 
 export default function Template({ data }) {
   const { recipesYaml } = data // data.allRecipesYaml holds data from plugin
-  const { fields, title, ingredients, directions, category } = recipesYaml
+  const { title, ingredients, directions, category } = recipesYaml
   return (
     <Layout>
-      <div className="blog-post">
-        <h1>{title}</h1>
-        <h4>{category}</h4>
-        <h2>Ingredients</h2>
-        <h2>Directions</h2>
-        <ol>
-          <li>1.</li>
-        </ol>
-      </div>
+      <h3>{title}</h3>
+      <h5>{category}</h5>
+      <h3>Ingredients</h3>
+      <ul>
+        {ingredients.map((ing, index) => (
+          <li key={index}>{ing}</li>
+        ))}
+      </ul>
+      <h3>Directions</h3>
+      <ol>
+        {directions.map((dir, index) => (
+          <li key={index}>{dir}</li>
+        ))}
+      </ol>
+      <br />
+      <br />
+      <Link to="/recipes">Back to Recipes</Link> <br />
+      <Link to="/">Home</Link>
     </Layout>
   )
 }
@@ -24,9 +34,6 @@ export default function Template({ data }) {
 export const pageQuery = graphql`
   query($path: String!) {
     recipesYaml(fields: { slug: { eq: $path } }) {
-      fields {
-        slug
-      }
       title
       category
       ingredients
