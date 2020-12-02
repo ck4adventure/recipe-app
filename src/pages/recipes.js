@@ -2,14 +2,22 @@ import React from "react"
 import { Link } from "gatsby"
 
 import Layout from "../components/layout"
+import CategoryCard from "../components/category-card"
 
 const RecipesPage = ({ data }) => {
   const recipePaths = data.allRecipesYaml.edges
-  console.log(recipePaths)
+  const categoryPaths = data.allCategoriesYaml.edges
+  console.log(categoryPaths)
   return (
     <Layout>
       <h1>Recipes Page</h1>
-      <h3>Currently Available:</h3>
+      <div style={{ display: `flex`, flexFlow: `row wrap` }}>
+        {categoryPaths.map((category, index) => (
+          <CategoryCard key={index} category={category.node} />
+        ))}
+      </div>
+      <br />
+      <h3>All Recipes:</h3>
       <ul>
         {recipePaths.map((result, index) => (
           <li key={index}>
@@ -17,7 +25,6 @@ const RecipesPage = ({ data }) => {
           </li>
         ))}
       </ul>
-      <br />
       <br />
       <Link to="/">Home</Link> <br />
       <Link to="/about/">About</Link>
@@ -35,6 +42,16 @@ export const pageQuery = graphql`
             slug
           }
           category
+        }
+      }
+    }
+    allCategoriesYaml {
+      edges {
+        node {
+          title
+          fields {
+            slug
+          }
         }
       }
     }

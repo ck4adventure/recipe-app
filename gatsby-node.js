@@ -9,7 +9,10 @@ const { createFilePath } = require(`gatsby-source-filesystem`)
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
   // Ensures we are processing only the right type of files
-  if (node.internal.type === "RecipesYaml") {
+  if (
+    node.internal.type === "RecipesYaml" ||
+    node.internal.type === "CategoriesYaml"
+  ) {
     // Use `createFilePath` to set the file path to be used in the links
     const relativeFilePath = createFilePath({
       node,
@@ -41,6 +44,16 @@ exports.createPages = async ({ actions, graphql }) => {
           }
         }
       }
+      allCategoriesYaml {
+        edges {
+          node {
+            title
+            fields {
+              slug
+            }
+          }
+        }
+      }
     }
   `)
   if (result.errors) {
@@ -52,6 +65,15 @@ exports.createPages = async ({ actions, graphql }) => {
       path: node.fields.slug,
       component: path.resolve(`src/templates/recipe.js`),
     })
-    console.log(node.fields.slug)
+  })
+
+  result.data.allCategoriesYaml.edges.forEach(({ node }) => {
+    createPage({
+      path: node.fields.slug,
+      component: path.resolve(`src/templates/category.js`),
+      context: {
+        title: node.title,
+      },
+    })
   })
 }
