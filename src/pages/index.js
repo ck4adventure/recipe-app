@@ -8,15 +8,14 @@ import SEO from "../components/seo"
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>
-      I enjoy creating things from diy art projects to elaborate sweets to
-      coding.
-    </p>
+    <div style={{ display: `flex`, justifyContent: `center` }}>
+      <img
+        style={{ margin: `0 auto` }}
+        src="https://source.unsplash.com/random/600x400"
+        alt="random photo to enjoy"
+      />
+    </div>
     <br />
-    <br />
-    <Link to="/recipes/">Recipes</Link> <br />
-    <Link to="/about/">About</Link>
   </Layout>
 )
 
