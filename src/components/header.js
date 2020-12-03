@@ -31,7 +31,15 @@ const Header = ({ siteTitle }) => (
         </Link>
       </h2>
       <div style={{ display: `flex` }}>
-        <h4 style={{ margin: 6 }}>
+        <h4 style={{ margin: 8 }}>
+          <Link
+            to="/dev-skills"
+            style={{ color: `white`, textDecoration: `none` }}
+          >
+            Dev Skills
+          </Link>
+        </h4>
+        <h4 style={{ margin: 8 }}>
           <Link
             to="/recipes"
             style={{ color: `white`, textDecoration: `none` }}
@@ -39,7 +47,7 @@ const Header = ({ siteTitle }) => (
             Recipes
           </Link>
         </h4>
-        <h4 style={{ margin: 6 }}>
+        <h4 style={{ margin: 8 }}>
           <Link to="/about" style={{ color: `white`, textDecoration: `none` }}>
             About
           </Link>
