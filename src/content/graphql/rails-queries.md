@@ -2,6 +2,7 @@
 title: Rails Graphql Queries
 path: /graphql/rails-queries
 date: 2020-12-04
+category: graphql
 ---
 
 ## Creating Queries for the Types

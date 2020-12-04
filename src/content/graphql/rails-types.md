@@ -2,6 +2,7 @@
 title: Creating Types with Rails
 path: /graphql/rails-types
 date: 2020-12-04
+category: graphql
 ---
 
 ## Creating Types

@@ -2,6 +2,7 @@
 title: Setting up Graphql on Rails
 path: /graphql/setup-rails
 date: 2020-12-04
+category: graphql
 ---
 
 ## Graphql on Rails
