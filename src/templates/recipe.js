@@ -16,24 +16,50 @@ export default function Template({ data }) {
   } = recipesYaml
   return (
     <Layout>
-      <div style={{ display: `flex`, alignItems: `baseline` }}>
-        <h3 style={{ margin: `none` }}>{title}</h3>
-        <h6 style={{ margin: `0 12px` }}>[{category}]</h6>
+      <div
+        style={{
+          display: `flex`,
+          alignItems: `baseline`,
+        }}
+      >
+        <h2 style={{ marginBottom: `1 rem` }}>{title}</h2>
+        <h6 style={{ margin: `0 12px`, fontWeight: `lighter` }}>
+          [{category.split("-").join(" & ").toUpperCase()}]
+        </h6>
       </div>
-      <h3>Ingredients</h3>
-      <ul>
-        {ingredients.map(({ item }, index) => (
-          <li key={index}>{item}</li>
-        ))}
-      </ul>
-      <h3>Directions</h3>
+      <h3 style={{ margin: 0, marginBottom: `0.5rem` }}>Ingredients</h3>
+      <form>
+        <div style={{ fontSize: 14, marginBottom: `0.5rem`, display: `flex` }}>
+          <div style={{ marginRight: 8 }}>
+            (Can check them off as they are gathered or used)
+          </div>
+        </div>
+        <ul>
+          {ingredients.map(({ item }, index) => (
+            <li key={index}>
+              <input
+                type="checkbox"
+                id={`item-${index}`}
+                name={item}
+                value={item}
+                style={{ marginRight: 8, marginLeft: -20 }}
+              />
+              {item}
+            </li>
+          ))}
+        </ul>
+        <input
+          type="reset"
+          value="Uncheck All"
+          style={{ fontSize: 14, border: `none`, color: `rebeccapurple` }}
+        />
+      </form>
+      <h3 style={{ margin: 0, marginBottom: `1rem` }}>Directions</h3>
       <ol>
         {directions.map(({ step }, index) => (
           <li key={index}>{step}</li>
         ))}
       </ol>
-      <p>{notes}</p>
-      <p>{source}</p>
       <br />
       <br />
       <Link to="/recipes">Back to Recipes</Link> <br />
