@@ -36,8 +36,6 @@ export const pageQuery = graphql`
       edges {
         node {
           title
-          ingredients
-          directions
           category
           fields {
             slug

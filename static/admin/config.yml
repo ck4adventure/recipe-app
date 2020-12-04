@@ -16,9 +16,30 @@ collections:
       preview: false
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Category", name: "category", widget: "string" }
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options:
+          [
+            "appetizers",
+            "breads",
+            "beverages",
+            "breakfast",
+            "drinks",
+            "mains",
+            "pantry",
+            "sauces-condiments",
+            "sides-salads",
+            "soups-sandwiches",
+            "sweets",
+          ]
       - label: "Ingredients"
         name: "ingredients"
         widget: "list"
         fields:
           - { label: "Item", name: "item", widget: "string" }
+      - label: "Directions"
+        name: "directions"
+        widget: "list"
+        fields:
+          - { label: "Step", name: "step", widget: "string" }

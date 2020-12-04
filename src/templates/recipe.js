@@ -13,14 +13,14 @@ export default function Template({ data }) {
       <h5>{category}</h5>
       <h3>Ingredients</h3>
       <ul>
-        {ingredients.map((ing, index) => (
-          <li key={index}>{ing}</li>
+        {ingredients.map(({ item }, index) => (
+          <li key={index}>{item}</li>
         ))}
       </ul>
       <h3>Directions</h3>
       <ol>
-        {directions.map((dir, index) => (
-          <li key={index}>{dir}</li>
+        {directions.map(({ step }, index) => (
+          <li key={index}>{step}</li>
         ))}
       </ol>
       <br />
@@ -36,8 +36,12 @@ export const pageQuery = graphql`
     recipesYaml(fields: { slug: { eq: $path } }) {
       title
       category
-      ingredients
-      directions
+      ingredients {
+        item
+      }
+      directions {
+        step
+      }
     }
   }
 `
