@@ -13,7 +13,7 @@ collections:
     create: true
     path: "{{title}}"
     editor:
-      preview: false
+      preview: true
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - label: "Category"
