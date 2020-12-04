@@ -12,7 +12,7 @@ const RecipesPage = ({ data }) => {
     <Layout>
       <h1>Recipes Page</h1>
       <h6>
-        <Link to="/admin/">Admin Page</Link>
+        <Link to="/admin/"> -> Manage Recipes</Link>
       </h6>
       <div style={{ display: `flex`, flexFlow: `row wrap` }}>
         {categoryPaths.map((category, index) => (
@@ -20,7 +20,7 @@ const RecipesPage = ({ data }) => {
         ))}
       </div>
       <br />
-      <h3>All Recipes:</h3>
+      <h3>All the recipes...</h3>
       <ul>
         {recipePaths.map((result, index) => (
           <li key={index}>

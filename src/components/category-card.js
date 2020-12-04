@@ -15,7 +15,7 @@ const CategoryCard = ({ category }) => {
     >
       <div>
         <Link to={`/recipes/${category.fieldValue}`}>
-          {category.fieldValue.toUpperCase()}
+          {category.fieldValue.replaceAll("-", " & ").toUpperCase()}
         </Link>
       </div>
     </div>
