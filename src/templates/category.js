@@ -8,7 +8,7 @@ export default function Template({ data }) {
   const recipePaths = data.allRecipesYaml.edges
   return (
     <Layout>
-      <h3>{title.replaceAll("-", " & ").toUpperCase()}</h3>
+      <h3>{title.toString().replaceAll("-", " & ").toUpperCase()}</h3>
       <h6>{description}</h6>
       <ul>
         {recipePaths.map((result, index) => (
