@@ -7,7 +7,6 @@ import CategoryCard from "../components/category-card"
 const RecipesPage = ({ data }) => {
   const recipePaths = data.allRecipesYaml.edges
   const categoryPaths = data.allRecipesYaml.group
-  console.log(categoryPaths)
   return (
     <Layout>
       <h1>Recipes Page</h1>

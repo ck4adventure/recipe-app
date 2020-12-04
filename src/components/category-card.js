@@ -2,7 +2,6 @@ import React from "react"
 import { Link } from "gatsby"
 
 const CategoryCard = ({ category }) => {
-  console.log(category.fieldValue.replaceAll("-", " & ").toUpperCase())
   return (
     <div
       style={{
@@ -15,7 +14,7 @@ const CategoryCard = ({ category }) => {
     >
       <div>
         <Link to={`/recipes/${category.fieldValue}`}>
-          {category.fieldValue.replaceAll("-", " & ").toUpperCase()}
+          {category.fieldValue.split("-").join(" & ").toUpperCase()}
         </Link>
       </div>
     </div>
