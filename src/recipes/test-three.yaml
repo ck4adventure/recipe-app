@@ -1,5 +1,12 @@
 title: Test Three
-category: mains
+category: appetizers
 ingredients:
   - item: 2 eggwhites
   - item: 6 oz sugar
+directions:
+  - step: Beat the egg whites until they start to get stiff.
+  - step: Add the sugar a teaspoon at a time, continuing to beat in between until
+      stiff peaks form.
+  - step: Put into a piping bag and pipe with a large star or round nozzle to form
+      shapes.
+  - step: Bake on low heat until dry and tasty.
