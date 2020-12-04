@@ -1,8 +1,6 @@
 import React from "react"
-import { Link } from "gatsby"
 
 import Layout from "../components/layout"
-import Image from "../components/image"
 import SEO from "../components/seo"
 
 const IndexPage = () => (
@@ -12,7 +10,7 @@ const IndexPage = () => (
       <img
         style={{ margin: `0 auto` }}
         src="https://source.unsplash.com/random/600x400"
-        alt="random photo to enjoy"
+        alt="random"
       />
     </div>
     <br />

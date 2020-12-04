@@ -1,8 +1,8 @@
 import React from "react"
-import { useStaticQuery, Link, graphql } from "gatsby"
+import { Link } from "gatsby"
 
 const CategoryCard = ({ category }) => {
-  console.log(category.fieldValue)
+  console.log(category.fieldValue.replaceAll("-", " & ").toUpperCase())
   return (
     <div
       style={{

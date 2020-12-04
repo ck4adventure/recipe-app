@@ -12,7 +12,7 @@ const RecipesPage = ({ data }) => {
     <Layout>
       <h1>Recipes Page</h1>
       <h6>
-        <Link to="/admin/"> -> Manage Recipes</Link>
+        <a href="/admin"> -> Manage Recipes</a>
       </h6>
       <div style={{ display: `flex`, flexFlow: `row wrap` }}>
         {categoryPaths.map((category, index) => (
@@ -37,7 +37,7 @@ const RecipesPage = ({ data }) => {
 
 export const pageQuery = graphql`
   query recipePaths {
-    allRecipesYaml {
+    allRecipesYaml(sort: { order: ASC, fields: title }) {
       group(field: category) {
         fieldValue
         totalCount
