@@ -2,8 +2,7 @@ import React from "react"
 import { useStaticQuery, Link, graphql } from "gatsby"
 
 const CategoryCard = ({ category }) => {
-  const { title, fields } = category
-
+  console.log(category.fieldValue)
   return (
     <div
       style={{
@@ -15,7 +14,9 @@ const CategoryCard = ({ category }) => {
       }}
     >
       <div>
-        <Link to={fields.slug}>{title.toUpperCase()}</Link>
+        <Link to={`/recipes/${category.fieldValue}`}>
+          {category.fieldValue.toUpperCase()}
+        </Link>
       </div>
     </div>
   )

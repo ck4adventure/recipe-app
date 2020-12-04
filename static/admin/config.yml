@@ -6,40 +6,48 @@ media_folder: static/img
 public_folder: /img
 
 collections:
+  - name: "categories"
+    label: "Categories"
+    label_singular: "Category"
+    folder: "src/categories"
+    extension: "yaml"
+    create: false
+    path: "{{title}}"
+    editor:
+      preview: false
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+
   - name: "recipes"
     label: "Recipes"
+    label_singular: "Recipe"
     folder: "src/recipes"
     extension: "yaml"
     create: true
     path: "{{title}}"
     editor:
-      preview: true
+      preview: false
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - label: "Category"
         name: "category"
-        widget: "select"
-        options:
-          [
-            "appetizers",
-            "breads",
-            "beverages",
-            "breakfast",
-            "drinks",
-            "mains",
-            "pantry",
-            "sauces-condiments",
-            "sides-salads",
-            "soups-sandwiches",
-            "sweets",
-          ]
+        widget: "relation"
+        collection: "categories"
+        value_field: "title"
+        search_fields: ["title"]
       - label: "Ingredients"
         name: "ingredients"
         widget: "list"
         fields:
           - { label: "Item", name: "item", widget: "string" }
-      - label: "Directions"
+      - label: "Steps"
         name: "directions"
+        label_singular: "Step"
         widget: "list"
         fields:
           - { label: "Step", name: "step", widget: "string" }
+      - { label: "Notes", name: "notes", widget: "text" }
+      - label: "Source"
+        name: "source"
+        widget: "string"

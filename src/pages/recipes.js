@@ -6,14 +6,17 @@ import CategoryCard from "../components/category-card"
 
 const RecipesPage = ({ data }) => {
   const recipePaths = data.allRecipesYaml.edges
-  const categoryPaths = data.allCategoriesYaml.edges
+  const categoryPaths = data.allRecipesYaml.group
   console.log(categoryPaths)
   return (
     <Layout>
       <h1>Recipes Page</h1>
+      <h6>
+        <Link to="/admin/">Admin Page</Link>
+      </h6>
       <div style={{ display: `flex`, flexFlow: `row wrap` }}>
         {categoryPaths.map((category, index) => (
-          <CategoryCard key={index} category={category.node} />
+          <CategoryCard key={index} category={category} />
         ))}
       </div>
       <br />
@@ -35,6 +38,10 @@ const RecipesPage = ({ data }) => {
 export const pageQuery = graphql`
   query recipePaths {
     allRecipesYaml {
+      group(field: category) {
+        fieldValue
+        totalCount
+      }
       edges {
         node {
           title
@@ -42,16 +49,6 @@ export const pageQuery = graphql`
             slug
           }
           category
-        }
-      }
-    }
-    allCategoriesYaml {
-      edges {
-        node {
-          title
-          fields {
-            slug
-          }
         }
       }
     }

@@ -6,11 +6,20 @@ import Layout from "../components/layout"
 
 export default function Template({ data }) {
   const { recipesYaml } = data // data.allRecipesYaml holds data from plugin
-  const { title, ingredients, directions, category } = recipesYaml
+  const {
+    title,
+    ingredients,
+    directions,
+    category,
+    notes,
+    source,
+  } = recipesYaml
   return (
     <Layout>
-      <h3>{title}</h3>
-      <h5>{category}</h5>
+      <div style={{ display: `flex`, alignItems: `baseline` }}>
+        <h3 style={{ margin: `none` }}>{title}</h3>
+        <h6 style={{ margin: `0 12px` }}>[{category}]</h6>
+      </div>
       <h3>Ingredients</h3>
       <ul>
         {ingredients.map(({ item }, index) => (
@@ -23,6 +32,8 @@ export default function Template({ data }) {
           <li key={index}>{step}</li>
         ))}
       </ol>
+      <p>{notes}</p>
+      <p>{source}</p>
       <br />
       <br />
       <Link to="/recipes">Back to Recipes</Link> <br />
@@ -42,6 +53,8 @@ export const pageQuery = graphql`
       directions {
         step
       }
+      notes
+      source
     }
   }
 `
