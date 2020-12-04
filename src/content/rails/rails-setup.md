@@ -5,27 +5,59 @@ path: /rails/rails-setup
 category: rails
 ---
 
-## New Rails Project
+## Rails 6 API Only
 
-#### Rails 6 with Postgres / RSpec / React
+```
+rails new <name> -d=postgresql -T --api
+```
 
-1. Set db to postgres
+#### Set db to postgres
 
-`-d=postgresql`
+Default is mysql
 
-1. Skip default testing
+```
+-d=postgresql
+```
 
+#### Skip default testing
+
+Don't worry, RSpec gets added later
 `-T`
 
-1. Preconfigure for React
+#### Set to API Only
 
-`--webpack=react`
+Sometimes all you need is some endpoints
+`--api`
 
-1. Skip the coffee script scss
+#### Skip action mailbox
 
-`--skip-coffee`
+Handles inbound emails to rails
+`--skip-action-mailbox`
 
-#### OR Traditional App w/ Views
+#### Skip action text
+
+New feature that incorporates rich text processing
+`--skip-action-text`
+
+## Rails 6 with Postgres / RSpec / React
+
+#### Set db to postgres
+
+    `-d=postgresql`
+
+#### Skip default testing
+
+    `-T`
+
+#### Preconfigure for React
+
+    `--webpack=react`
+
+#### Skip the coffee script scss
+
+    `--skip-coffee`
+
+## Traditional App w/ Views
 
 `rails new <name> --database=<db>`
 
@@ -34,6 +66,15 @@ A common option is to also `--skip-turbo-links`
 ## Add BDD and testing gems
 
 #### Update the Gemfile
+
+```ru
+# top level, automatically turned on if api
+# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+gem 'jbuilder', '~> 2.7'
+
+# adding Graphql
+gem 'graphql'
+```
 
 ```ru
 group :development, :test do
@@ -55,6 +96,9 @@ group :development do
   gem 'binding_of_caller'
   # `annotate --models` for schema luv
   gem 'annotate'
+
+    # gem for devving graphql
+  gem 'graphiql-rails'
 end
 ```
 
