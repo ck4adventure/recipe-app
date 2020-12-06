@@ -43,3 +43,9 @@ end
 `rails db:rollback` - will undo the last migration
 
 NB: won't work in production env
+
+### Model Class File
+
+#### TIL:
+
+Make sure to get the right order of validates, basic associations, has_throughs, and then any nested_attributes before setting the attr_accesible and finally your methods.

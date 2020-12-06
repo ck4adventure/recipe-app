@@ -25,7 +25,7 @@ category: graphql
    rails g graphql:install
    ```
 
-3. Configure Routes
+3. Configure Routes and Mount Engijne in Dev
 
    From `/config/routes.rb`
 
@@ -67,3 +67,7 @@ category: graphql
        testField
    }
    ```
+
+```
+
+```
