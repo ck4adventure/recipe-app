@@ -6,24 +6,28 @@ import Layout from "../components/layout"
 const AboutPage = () => (
   <Layout>
     <h2>About this site</h2>
+    <h4>Version 0.2</h4>
     <p>
-      This is a project using Gatsby and Graphql to deploy a basic recipe app.
-      Eventually, this app will hold a small database of my most commonly cooked
-      meals.
+      This is a project using Gatsby and Graphql to deploy a basic app. It
+      utilizes markdown files to hold content which eliminates the need for a
+      back end.
     </p>
     <h3>Timeline</h3>
     <ul>
       <li>
         {" "}
-        0.1 is just a static site with recipes entered in manually in yaml
-        format and browsable by set categories
+        0.1 is a basic site layout with two sections, recipes and dev knowledge.
       </li>
-      <li> 0.2 will add search functionality </li>
-      <li> 0.3 will add a CMS for easier data entry </li>
+      <li>
+        {" "}
+        0.2 (Current Version) added a cms under `/admin` to add recipes more
+        easily. Dev knowledge is still added locally to the repository.
+      </li>
+      <li> 0.3 will add search functionality.</li>
       <li>
         {" "}
         ... other ideas include adding on a full css framework, switching to a
-        live backend, containerizing, integrating the CMS into app{" "}
+        live backend, containerizing, and integrating the CMS into app{" "}
       </li>
     </ul>
     <h3>Implemention Choices</h3>
