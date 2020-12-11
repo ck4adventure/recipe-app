@@ -7,9 +7,11 @@ import ServPage from "../images/dcos-services.png"
 
 const PortPage = () => (
   <Layout>
-    <h2>Front End Work</h2>
+    <h3>Front End Work</h3>
     <div style={{ display: "flex" }}>
-      <div style={{ display: "flex", flexDirection: "column" }}>
+      <div
+        style={{ display: "flex", flexDirection: "column", marginRight: 16 }}
+      >
         <a
           href="https://docs.d2iq.com/mesosphere/dcos/services/"
           target="_blank"
@@ -56,9 +58,12 @@ const PortPage = () => (
         </div>
       </div>
     </div>
-
     <br />
-    <h2>Technical Writing Sample</h2>
+    <h3>Technical Writing</h3>
+    At the moment, my best work didn't make it to publishing when our project
+    was cancelled. See the <Link to="/dev-notes">Dev Notes</Link> for some basic
+    procedural guides.
+    <br />
     <Link to="/">Return to Home</Link>
   </Layout>
 )

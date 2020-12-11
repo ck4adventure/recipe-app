@@ -33,10 +33,18 @@ const Header = ({ siteTitle }) => (
       <div style={{ display: `flex` }}>
         <h4 style={{ margin: 8 }}>
           <Link
+            to="/portfolio"
+            style={{ color: `white`, textDecoration: `none` }}
+          >
+            Portfolio
+          </Link>
+        </h4>
+        <h4 style={{ margin: 8 }}>
+          <Link
             to="/dev-skills"
             style={{ color: `white`, textDecoration: `none` }}
           >
-            Dev Skills
+            Dev Notes
           </Link>
         </h4>
         <h4 style={{ margin: 8 }}>

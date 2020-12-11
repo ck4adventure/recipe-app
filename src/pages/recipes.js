@@ -10,16 +10,21 @@ const RecipesPage = ({ data }) => {
   return (
     <Layout>
       <h1>Recipes Page</h1>
-      <h6>
-        <a href="/admin"> -> Manage Recipes</a>
-      </h6>
+      <h5>
+        <a href="/admin"> -> Manage Recipes on the CMS</a> (Requires creating an
+        account)
+      </h5>
+      <h4>
+        Work in progress of categorizing and organizing some test recipes. Real
+        ones coming soon....
+      </h4>
       <div style={{ display: `flex`, flexFlow: `row wrap` }}>
         {categoryPaths.map((category, index) => (
           <CategoryCard key={index} category={category} />
         ))}
       </div>
       <br />
-      <h3>All the recipes...</h3>
+      <h4>All the recipes...</h4>
       <ul>
         {recipePaths.map((result, index) => (
           <li key={index}>
