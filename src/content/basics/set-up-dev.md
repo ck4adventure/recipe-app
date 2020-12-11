@@ -1,7 +1,7 @@
 ---
 path: /basics/set-up-dev
 date: 2020-12-10
-title: Setting Up
+title: Setting Up a Dev Environment
 category: basics
 ---
 

@@ -7,7 +7,7 @@ import SEO from "../components/seo"
 const CategoryLinksList = ({ obj }) => {
   return (
     <div>
-      <h5>{obj.fieldValue.toUpperCase()}</h5>
+      <h4>{obj.fieldValue.toUpperCase()}</h4>
       <ul>
         {obj.nodes.map((node, index) => {
           return (
