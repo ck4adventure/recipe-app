@@ -41,7 +41,7 @@ const Header = ({ siteTitle }) => (
         </h4>
         <h4 style={{ margin: 8 }}>
           <Link
-            to="/dev-skills"
+            to="/dev-notes"
             style={{ color: `white`, textDecoration: `none` }}
           >
             Dev Notes
