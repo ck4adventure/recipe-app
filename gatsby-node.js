@@ -11,7 +11,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   // Ensures we are processing only the right type of files
   if (
     node.internal.type === "RecipesYaml" ||
-    node.internal.type === "CategoriesYaml"
+    node.internal.type === "RecipeCategoriesYaml"
   ) {
     // Use `createFilePath` to set the file path to be used in the links
     const relativeFilePath = createFilePath({
@@ -44,7 +44,7 @@ exports.createPages = async ({ actions, graphql }) => {
           }
         }
       }
-      allCategoriesYaml {
+      allRecipeCategoriesYaml {
         edges {
           node {
             title
@@ -55,6 +55,7 @@ exports.createPages = async ({ actions, graphql }) => {
         }
       }
       allMarkdownRemark {
+        distinct(field: frontmatter___category)
         edges {
           node {
             frontmatter {
@@ -69,6 +70,16 @@ exports.createPages = async ({ actions, graphql }) => {
     console.error(result.errors)
   }
 
+  result.data.allMarkdownRemark.distinct.forEach(cat => {
+    createPage({
+      path: `/${cat}`,
+      component: path.resolve(`src/templates/skill-category.js`),
+      context: {
+        title: cat,
+      },
+    })
+  })
+
   result.data.allRecipesYaml.edges.forEach(({ node }) => {
     createPage({
       path: node.fields.slug,
@@ -76,10 +87,10 @@ exports.createPages = async ({ actions, graphql }) => {
     })
   })
 
-  result.data.allCategoriesYaml.edges.forEach(({ node }) => {
+  result.data.allRecipeCategoriesYaml.edges.forEach(({ node }) => {
     createPage({
       path: node.fields.slug,
-      component: path.resolve(`src/templates/category.js`),
+      component: path.resolve(`src/templates/recipe-category.js`),
       context: {
         title: node.title,
       },

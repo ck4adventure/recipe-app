@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 
 export default function Template({ data }) {
@@ -9,12 +9,19 @@ export default function Template({ data }) {
     <Layout>
       <div className="blog-post">
         <h1>{frontmatter.title}</h1>
-        <h5>{frontmatter.date}</h5>
+        <Link to={`/${frontmatter.category}`}>
+          Back to {frontmatter.category.toUpperCase()} Notes
+        </Link>
+        <br />
+        <br />
         <div
           className="blog-post-content"
           dangerouslySetInnerHTML={{ __html: html }}
         />
       </div>
+      <Link to={`/${frontmatter.category}`}>
+        Back to {frontmatter.category.toUpperCase()} Notes
+      </Link>
     </Layout>
   )
 }
@@ -27,6 +34,7 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         path
         title
+        category
       }
     }
   }

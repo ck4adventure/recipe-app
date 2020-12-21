@@ -4,7 +4,7 @@ import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 
 export default function Template({ data }) {
-  const { title, description } = data.categoriesYaml
+  const { title, description } = data.recipeCategoriesYaml
   const recipePaths = data.allRecipesYaml.edges
   return (
     <Layout>
@@ -25,7 +25,7 @@ export default function Template({ data }) {
 
 export const pageQuery = graphql`
   query categoryData($title: String!) {
-    categoriesYaml(title: { eq: $title }) {
+    recipeCategoriesYaml(title: { eq: $title }) {
       title
       description
     }

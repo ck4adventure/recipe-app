@@ -23,8 +23,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `categories`,
-        path: `${__dirname}/src/categories`,
+        name: `recipe-categories`,
+        path: `${__dirname}/src/recipe-categories`,
       },
     },
     `gatsby-transformer-yaml`,
