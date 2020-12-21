@@ -7,6 +7,8 @@ category: graphql
 
 ## Graphql on Rails
 
+Setting up the gems for graphql is super easy.
+
 1. Add gems to bundle and install
 
    ```ru
@@ -25,9 +27,9 @@ category: graphql
    rails g graphql:install
    ```
 
-3. Configure Routes and Mount Engijne in Dev
+3. Configure Routes and Mount Engine in Dev
 
-   From `/config/routes.rb`
+   From `/config/routes.rb`, make sure all these lines are there.
 
    ```ru
    Rails.application.routes.draw do
@@ -41,7 +43,7 @@ category: graphql
 
 4. Reinstate Railties
 
-   From `/config/application.rb`, uncomment the sprockets/railties
+   From `/config/application.rb`, uncomment the sprockets/railties, as it is normally unneeded for an API app.
 
    ```ru
    require "action_cable/engine"
@@ -67,7 +69,3 @@ category: graphql
        testField
    }
    ```
-
-```
-
-```

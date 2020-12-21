@@ -5,11 +5,11 @@ path: /graphql/graphql-intro
 category: graphql
 ---
 
-## Graphql // is awesome
+## Graphql
 
-Graphql was originally created by Facebook as a tool to simplify all the data fetching they were doing for components. The principle idea is to aggregate all of the available data into a typed schema which can be queried by the client. The client can format a query with exactly the data it needs, and the data is returned in the same structure, making it incredibly easy to parse.
+As an alternative to the regular RESTful API with tons of complicated routing to create the necessary endpoints, graphql has three main actions, 'query', 'mutate' and 'subscribe (to events)'. Graphql was originally created by Facebook as a tool to simplify all the data fetching they were doing for components. The principle idea is to aggregate all of the available data into a typed schema which can be queried by the client. The client can format a query with exactly the data it needs according to the available schema, and the data is returned in the same structure, making it incredibly easy to parse. The main advertised benefit of GraphQL is fetching only the data wanted - no more underfetching or overfetching too much data from the server.
 
-Graphql doesn't stand up on it's own though, it needs data sources to query, whether that is a Rails backend, Django, MongoDB, or any other API that can be called and resolved. The beauty is that all of these calls can be made from the graphql server and abstracted away from the client.
+Graphql doesn't stand up on it's own though, it needs data sources to interface with, whether that is a through Rails backend to Postgresql, Django MySQL, MongoDB, or any other API that can be called and resolved. The beauty is that all of these calls can be made from the graphql server and resolved, keeping it abstracted away from the client.
 
 ##### Refresher on APIs
 
