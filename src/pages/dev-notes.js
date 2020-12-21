@@ -52,7 +52,7 @@ const SkillsPage = ({ data }) => {
 export const query = graphql`
   query catsQuery {
     allMarkdownRemark {
-      group(field: frontmatter___category, limit: 10) {
+      group(field: frontmatter___category, limit: 2) {
         totalCount
         fieldValue
         nodes {
