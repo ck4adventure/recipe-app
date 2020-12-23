@@ -34,7 +34,6 @@ module.exports = {
       options: {
         name: `content`,
         path: `${__dirname}/src/content`,
-        ignore: [`^.*.(jpg|JPG|gif|GIF|svg|SVG|png|PNG)`], // ignore files starting with a dot
       },
     },
     `gatsby-transformer-sharp`,
