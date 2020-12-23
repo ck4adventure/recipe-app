@@ -1,7 +1,8 @@
 ---
-title: Lesson 1 - Basic Apps
-path: unity/lecture-1
+title: Lesson 1 Basic Apps
+path: /unity/lecture-1
 date: 2020-12-23
+category: unity
 ---
 
 In order to be introduced to some very basic concepts, we will be writing our first console app. The IDE is what we use to create `source code` which is then compiled by the `IDE` into `common intermediate language`, which will later be turned into the actual machine instructions that will run on the chip of whatever computer our software is actually running on.

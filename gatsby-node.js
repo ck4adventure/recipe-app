@@ -98,6 +98,7 @@ exports.createPages = async ({ actions, graphql }) => {
   })
 
   result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    console.log(node.frontmatter)
     createPage({
       path: node.frontmatter.path,
       component: path.resolve(`src/templates/post.js`),

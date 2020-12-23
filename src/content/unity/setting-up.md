@@ -2,6 +2,7 @@
 title: Setting up Visual Studio
 path: /unity/set-up-vs
 date: 2020-12-22
+category: unity
 ---
 
 Week 1 Task 1 - Set up VS Community 2019 and Unity Hub
