@@ -31,8 +31,8 @@ Next up is installing the [Unity Hub](https://store.unity.com/#plans-individual)
 
 Next, Dr. T asks to choose the 2x3 Layout. After much searching, I found it under the Window menu up top, and also at the very top right of the application window.
 
-![layout view](layout-view-picker.png)
+![layout view](./layout-view-picker.png)
 
 Also, choose the one column layout for project files, in the middle.
 
-![one column layout](column-layout-picker.png)
+![one column layout](./column-layout-picker.png)
