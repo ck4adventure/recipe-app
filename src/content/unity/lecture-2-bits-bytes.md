@@ -1,5 +1,5 @@
 ---
-title: Lecture 2 Bits n Bytes
+title: Bits n Bytes
 path: /unity/lecture-2
 date: 2020-12-23
 category: unity

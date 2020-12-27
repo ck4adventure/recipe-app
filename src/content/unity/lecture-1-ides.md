@@ -1,5 +1,5 @@
 ---
-title: Lesson 1 Basic Apps
+title: Working with IDEs
 path: /unity/lecture-1
 date: 2020-12-23
 category: unity
