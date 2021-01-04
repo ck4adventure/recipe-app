@@ -1,5 +1,5 @@
 ---
-title: Classes in Unity
+title: Using Unity
 path: /unity/lecture-6
 date: 2020-12-30
 category: unity
@@ -60,3 +60,7 @@ First off, it is almost never wise to simply start playing around in a debugger 
 Once you have an idea of where to start, setting a breakpoint in a debugger program is a great way to get the code to `break` or stop for you, hopefully somewhere in the code before the bug actually is. Choose to debug the program and attach the `Unity Debugger`, then click run. Once it reaches the breakpoint it will stop and wait. Here, you can take a moment to check on values of variables, and watch them as we go along using `Locals`. To keep moving through the code, the `step` command will take you through that line of code to the next. Once you have what you need, you will need to stop the debugger process, and then stop the code itself from running after that.
 
 Remember to delete your breakpoints when you are finished with them so that you don't encounter unexpected behavior.
+
+##### Side Quest: Changing Versions
+
+Unity releases new minor versions on a regular cadence, and since a few years ago started naming them by year for easier reference. Some older projects may need an older version of Unity, which the `Unity Hub` can help provide. During this course I found myself having to go to the archival page to get Unity 5.6.0 from 2017. Luckily, it was the first avail to install itself through Unity Hub so that I didn't have to do a manual process.
