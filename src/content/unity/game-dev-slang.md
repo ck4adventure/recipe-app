@@ -2,6 +2,7 @@
 title: Game Dev Concepts
 path: /unity/concepts
 date: 2020-12-27
+category: unity
 ---
 
 A few additional concepts that don't fit directly in with C# notes.

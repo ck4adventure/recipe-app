@@ -1,6 +1,6 @@
 ---
 title: First Transforms
-path: /unity/lecture-6
+path: /unity/lecture-7
 date: 2020-01-04
 category: unity
 ---
