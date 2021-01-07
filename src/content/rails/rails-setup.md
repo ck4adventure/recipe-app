@@ -5,63 +5,25 @@ path: /rails/rails-setup
 category: rails
 ---
 
-## Rails 6 API Only
+Setting up a new rails app is done through the rails CLI. See the [cli docs here](https://guides.rubyonrails.org/command_line.html).
 
-```
-rails new <name> -d=postgresql -T --api
-```
+## New Rails App
 
-#### Set db to postgres
+`rails new <name>` is the basic command that will install a boilerplate app with a ton of functionality one would need if making a production app.
 
-Default is mysql
+### Common Flags
 
-```
--d=postgresql
-```
+Make sure to query the `rails new --help` to review all available options. But here are a few of the most used.
 
-#### Skip default testing
-
-Don't worry, RSpec gets added later
-`-T`
-
-#### Set to API Only
-
-Sometimes all you need is some endpoints
-`--api`
-
-#### Skip action mailbox
-
-Handles inbound emails to rails
-`--skip-action-mailbox`
-
-#### Skip action text
-
-New feature that incorporates rich text processing
-`--skip-action-text`
-
-## Rails 6 with Postgres / RSpec / React
-
-#### Set db to postgres
-
-    `-d=postgresql`
-
-#### Skip default testing
-
-    `-T`
-
-#### Preconfigure for React
-
-    `--webpack=react`
-
-#### Skip the coffee script scss
-
-    `--skip-coffee`
-
-## Traditional App w/ Views
-
-`rails new <name> --database=<db>`
-
-A common option is to also `--skip-turbo-links`
+`-d=postgresql`, # Preconfigure for selected database (options: mysql/postgresql/sqlite3/oracle/frontbase/ibm_db/sqlserver/jdbcmysql/jdbcsqlite3/jdbcpostgresql/jdbc)
+`-M`, `--skip-action-mailer`, # Skip Action Mailer files
+`--skip-action-text`, # Skip Action Text gem
+`--skip-action-storage`, # Skip Active Storage files
+`--skip-turbolinks`, # Skip turbolinks gem
+`-S`, `--skip-sprockets`, # Skip Sprockets files
+`-T`, `--skip-test`, # Skip test files
+`--api`, # Preconfigure smaller stack for API only apps
+`--webpacker, [--webpack=WEBPACK]`, # Preconfigure Webpack with a particular framework (options: react, vue, angular, elm, stimulus)
 
 ## Add BDD and testing gems
 
@@ -201,3 +163,7 @@ Make sure the postgres server is up and running on your local.
 Doing this first can help make sure no errors and connected:
 
 `rails db:create`
+
+### Test it
+
+Run `rails s` to make sure you get the default Rails App page and check that the server is working properly.
