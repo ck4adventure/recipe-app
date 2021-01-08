@@ -59,7 +59,7 @@ Rigidbody2D rb = GetComponent<Rigidbody2D>();
 Next, we can use the `AddForce` method that we learned about to add a force to our game object. Remembering from before, it needs at the minimum the force, which in this case is a Vector2 data type for x and y movement. We can create a new one on the fly and it's value will be created and passed to the AddForce method. We can also add the optional force mode by passing in one of the four available forces.
 
 ```c#
-rb.AddForce(new Vector@(1,0), ForceMode2D.Impulse);
+rb.AddForce(new Vector2(1,0), ForceMode2D.Impulse);
 ```
 
 Once it is saved, you still need to attach the mover script to the object in the game. Once you press play, you should see the object move off to the right and keep going.
@@ -67,5 +67,5 @@ Once it is saved, you still need to attach the mover script to the object in the
 An optional way of accessing and updating the rigidbody component of the object the script is attached to can be done in a single line instead of the two above.
 
 ```c#
-GetComponent<Rigidbody2D>().AddForce(new Vector@(1,0), ForceMode2D.Impulse);
+GetComponent<Rigidbody2D>().AddForce(new Vector2(1,0), ForceMode2D.Impulse);
 ```
