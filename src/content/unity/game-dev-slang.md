@@ -12,6 +12,7 @@ A few additional concepts that don't fit directly in with C# notes.
 - FPS: Frames per Second
 - Sprite: a single image frame
 - Sprite Sheet: a set of frames that create an animation
+- Prefab: complex component with scripts and materials that can be used to create new instances
 
 ### Gaming
 
