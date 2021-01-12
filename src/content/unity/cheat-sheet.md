@@ -44,6 +44,10 @@ Simply add a `Prefabs` folder under `Assets`. Now, drag a game object over into 
 
 Simply place a breakpoint in your code, under `Run` click `Attach to Process...` and choose the `Unity Debugger`, then let er rip.
 
+### GameObject Methods
+
+- `FindWithTag`
+
 ### Current Abilities
 
 - Add a teddy bear image as a sprite and hop it around the screen given min/max coords and random choosing within that range

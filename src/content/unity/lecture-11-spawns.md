@@ -7,6 +7,8 @@ category: unity
 
 This lecture will discuss how to spawn lots of game objects using a timer system.
 
+## Creating Spawns
+
 ### Making fields public
 
 There are times when you will want to be able to see and change the values of script objects from within the Unity Inspector panel. One cheat is to simply write `public` in front of the variables in your script. But this goes against information best practice standards. Instead, use the `[SerializeField]` statement above each line that you want to make the variable public. This will create a field in the Inspector panel with the data type and variable name.
@@ -32,3 +34,24 @@ Once our timer is running, eventually enough frames will be run that the time sp
 Spawning a bear is done by creating a Vector3 data type called location. The x and y coords and again set by calling a Random.Range, using the min and max x and y values set when the script was started. Although it is a 2D game, there is a 3D component of the camera's distance from the object. So in order to get it on the 0-plane of the game world, one simply places it at the reverse value of the z position of the camera. `-Camera.main.transform.position.z`, and then calls a `ScreenToWorldPoint` method to convert the pixel/screen locations into a local world location.
 
 Now that we have where we want the teddy bear to go, we can `Instantiate(prefabTeddyBear) as GameObject` and use that game object reference to set the location. It will also need a sprite to determine how it looks, so we again take advantage of `Random.range(0,3)` to pick a number between 0 and 2 inclusive, and use a selection control structure (if/else if or switch) to render the appropriate sprite version.
+
+### Creating tags on game objects
+
+Often game objects will need to be able to be tracked by various properties. Here, Dr. T creates a `C4TeddyBear` tag that will be used to mark a teddy bear for destruction in the game, rather than using any of the defaults.
+
+Next up is creating the script that will find and destroy anything that gets tagged with `C4TeddyBear`. So we create a script, attach it to the main camera before we forget, and then open it.
+
+We won't need anything in the start method, but in `Update` we will need to find the GameObject that is tagged before we can do anything to it. So, luckily for us the `GameObject` class has a static method called `FindWithTag` that allows us to grab a reference to anything that comes up with the specified tag given as a string. It will return `null` if no game object is found.
+
+```c#
+GameObject teddy = GameObject.FindWithTag("C4TeddyBear");
+ if (teddy != null)
+ {
+   Instantiate<GameObject>(prefabExplosion, teddy.transform.position, Quaternion.identity);
+   Destroy(teddy);
+ }
+```
+
+Ideally, this is put into place with a timer control so that it only finds a new teddy every second or so, not on each and every frame update. We can instantiate another instance of our Timer class here to run on a single second duration.
+
+Additionally, rather than adding in tags by hand in the inspector, it is better to actually set a `GameObject teddy = Instantiate<GameObject>(prefabTeddy)` and add the tag by calling `teddy.tag = "C4TeddyBear";` dynamically.
