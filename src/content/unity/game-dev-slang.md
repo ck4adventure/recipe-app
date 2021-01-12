@@ -18,3 +18,4 @@ A few additional concepts that don't fit directly in with C# notes.
 
 - DPS: Damage Per Second
 - Common stat is also number of Seconds played
+- Randomicity isn't all that random, have to actually control for the occasional too long streaks that might harm game play

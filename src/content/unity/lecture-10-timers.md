@@ -1,85 +1,136 @@
 ---
-title: Conditional Logic
-path: /unity/lecture-9
-date: 2020-01-07
+title: Game Timers
+path: /unity/lecture-10
+date: 2020-01-08
 category: unity
 ---
 
-This lecture covers some of the basics of programming logic.
+Game timers can be super helpful. Common uses are keeping track of the time limit of a level, deciding when to spawn new objects into the game world, or setting a time limit on how long they exist (death timer). Increasing the difficulty level based on an elapsed time is also a common tactic.
 
-### Common Operators
+### Simple Timer Setup
 
-Booleans in C# are called with type `bool`. It returns true or false.
-
-A boolean expression is any expression that evals to only true/false.
-
-Logical operators `&&` AND, and `||` OR.
-
-The `!` stands for `not` or opposite. `!True` is `False`.
-
-Also important is the relational comparison `==`. There is also `<`, `>`, etc as we learned in basic math.
-
-### If and else
-
-A basic `if` block in C# looks like this:
+Below are some fields and their uses in creating a timer.
 
 ```c#
-if (expression like a < b )
+public class Timer : MonoBehaviour
 {
- // if true, any code here gets evaluated
-}
-```
+  #region Fields
+  // timer duration, how long we will let it run
+  float totalSeconds = 0;
+  // timer execution
+  // how long running since started
+  float elapsedSeconds = 0;
+  // is timer currently running
+  bool running = false;
+  // support for Finished property
+  bool started = false;
 
-An `if-elseif-else` adds the else directly below:
-
-```c#
-if (expression)
-{
- // do stuff
-}
-else if (other expression)
-{
- // other stuff
-}
-else {
+  #endregion
+  ...
 
 }
 ```
 
-### Switch Statements
-
-So, often we will want to do things based on user input, and a `switch` statement is the easiest way to hold more possible `cases` than using a long list of `if else`.
-
-A very basic way of getting user input is through the console, taking the user's input and saving it to a variable.
+Next, we add a method inside our class to actually run the timer.
 
 ```c#
-Console.Write("Pick up the shiny thing? (1 for Yes, 2 for No)");
-int answer = int.Parse(Console.ReadLine());
+...
+  #region Methods
+
+  void Update()
+  {
+    // update timer and check for finished
+    if (running)
+    {
+      elapsedSeconds += Time.deltaTime;
+      if (elapsedSeconds >= totalSeconds)
+      {
+        running = false;
+      }
+    }
+  }
+
+  public void Run()
+  {
+    // only run with valid duration
+    if (totalSeconds > 0)
+    {
+      // now we change our `flags` to start
+      // and ensure elapsed is reset
+      started = true;
+      running = true;
+      elapsedSeconds = 0;
+    }
+  }
+  #endregion
+  ...
 ```
 
-The actual switch statement starts like this:
+Plus, we have some Properties we can make available to outside entities:
+
+```c#
+  // sets duration of the timer only if not running
+  public float Duration
+  {
+    set
+    {
+      if (!running)
+      {
+        totalSeconds = value;
+      }
+    }
+  }
+
+  public bool Finished
+  {
+    // must have been started, but no longer running
+    get { return started && !running; }
+  }
+
+  public bool Running
+  {
+    get { return running; }
+  }
+
+  // gets whether or not timer has finished
+```
+
+Finally, we actually utilize the start and update methods together.
+
+```c#
+...
+  void Start()
+  {
+    // create and run timer, adding a component programmatically
+    timer = gameObject.AddComponent<Timer>();
+    timer.Duration = 3;
+    timer.Run ();
+
+    // save start time
+    startTime = Time.time;
+  }
+
+  void Update()
+  {
+    // check for timer just finihsed
+    if (timer.Finished)
+    {
+      float elapsedTime = Time.time = startTime;
+      print("Timer ran for " + elapsedTime + " seconds");
+
+      // save start time and restart the timer
+      startTime = Time.time;
+      timer.Run();
+    }
+  }
+```
+
+As long as the script is attached to a gameobject, it will be able to run when you start the game.
+
+##### Entire Script
 
 ```c#
 
-switch (value)
-{
-  case 1:
-    Console.WriteLine("You pick up the shiny thing");
-    break;
-  case 2:
-    Console.WriteLine("You keep on walking");
-    break;
-  default:
-    Console.WriteLine("That wasn't a valid choice");
-}
+
+
 ```
-
-The `value` is the variable you are checking the value of. Each `case` then holds as it's key the goal value to be compared against. It is automatically a `==` comparison unless a more complex expression is given. Can't switch on floats, for example.
-
-Make sure to use a `break` after you are done with whatever code needed to be done for each case. Alternatively, a complex switch can utilize the `fallthrough` of code to run the next following case's code as well. But this can get messy.
-
-Also, best practices dictate always having a `default` case that acts like a bit of a rescue if none of the other cases are matched. `Fallthrough` can sometimes also be used to allow multiple cases to all drop to the default code.
-
-##### Creating a menu
-
-A simple console game can be created through case statements and meta loops that keep it running until the user quits.
