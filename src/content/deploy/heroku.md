@@ -1,5 +1,5 @@
 ---
-title: Heroku COmmands
+title: Heroku Commands
 date: 2021-01-14
 path: /deploy/heroku
 category: deploy
