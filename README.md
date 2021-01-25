@@ -1,4 +1,6 @@
-### Gatsby Static Site App v0.2
+### Christina's Corner
+
+Gatsby Static Site App v0.3
 
 This static site was a project to learn more about using gatsby and static site generators. It also uses GraphQL, so that was fun to learn basic queries for generating pages both singleton and templated.
 
