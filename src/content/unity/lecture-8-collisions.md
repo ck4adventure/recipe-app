@@ -7,7 +7,7 @@ category: unity
 
 Collisions and collision detection are an integral part of any 2D game. How else is the player going to interact with the environment? Collisions include how things bounce when they hit the floor or other objects, can include the friction of sliding an object across another, or even reduce health if something knocks into the players character, for example. So the collision is the event, but really we can only follow it through `detection` and handle it through `resolution`. Similar to whether or not a tree that falls in the forest makes any sound, does a collision have any value if it isn't detected? Or would our objects simply overlap in some weird way and just keep going.
 
-By adding `materials` to our colliders, we ensure the physics engine can provide the proper collision resolutions.
+By adding `materials` to our colliders, we ensure the physics engine can provide the proper collision resolutions. Two common properties are `friction` and `bounciness` which determine how each of the bodies will react when in contact with one another.
 
 ### Adding simple colliders
 
