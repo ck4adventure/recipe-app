@@ -53,5 +53,7 @@ This opens a text where you can add a scheduling line as follows, with extra err
 
 Already frustrated with the size of the log, I searched and tested some more until I could get my Bash v3 to do this, which tosses the stdout into the void and only logs the error lines. Timestamps still happen each time, which isn't super ideal but does give a nice effect on human visual scrollthrough. I even added more logic to create daily logs so that I don't overload any single file.
 
+```
 date "+%Y/%m/%d %H:%M:%S" >> $(date +%Y%m%d)-orbi.txt
-(/sbin/ping -c 1 -t 3 -q google.com) >> /dev/null 2>> $(date +%Y%m%d)-orbi.txt
+/sbin/ping -c 1 -t 3 -q google.com >> /dev/null 2>> $(date +%Y%m%d)-orbi.txt
+```

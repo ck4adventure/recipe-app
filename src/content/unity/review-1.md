@@ -1,6 +1,6 @@
 ---
-title: Tasks Sheet
-path: /unity/code-snippets
+title: Unity Review 1
+path: /unity/review-1
 date: 2021-01-08
 category: unity
 ---
@@ -40,6 +40,10 @@ Drag and drop the sprite image from the project folder to the hierarchy to add i
 Scripts are stored in `Assets > Scripts`. Use the plus sign just below the `Project` label to add a new script. Whatever a script is given for a title, the class it creates will be given the same class name. If you need to change it later, right click on the file to `Rename` it. Unity will change the inner class name for you.
 
 Scripts are attached via drag-n-drop to game objects in the hierarchy. Editing and compiling take place in `Visual Studio` rather than Unity. A common rookie mistake is to write scripts and forget to attach them to their objects.
+
+##### Adding Materials
+
+Materials are the way to give objects their physical characteristics. As an example, edge colliders won't function until given a material which defines how that edge collider reacts when a collision is registered. Two important physical properties determined by the material are `friction` and `bounciness`.
 
 ##### Adding Game Objects
 
